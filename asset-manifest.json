@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/bookwalker-discount-calculator/static/js/main.a40fbafc.js",
+    "index.html": "/bookwalker-discount-calculator/index.html",
+    "main.a40fbafc.js.map": "/bookwalker-discount-calculator/static/js/main.a40fbafc.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.a40fbafc.js"
+  ]
+}
