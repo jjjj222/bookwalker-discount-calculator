@@ -44,7 +44,7 @@ export default function App() {
             <AppBar sx={{backgroundColor: 'black'}}>
                 <Toolbar>
                     <Typography variant="h6" component="div">
-                        BW Discount Calculator
+                        BookWalker Discount Calculator
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -61,7 +61,7 @@ export default function App() {
                                     setDiscount(Number(event.target.value));
                                 }}
                             />
-                            (如果是9折就打0.9, 79折就打0.79, 沒有就是1):
+                            (如果是9折就打0.9, 79折就打0.79, 沒有就是1)
                         </Box>
                         <Box sx={{display: 'flex', alignItems: 'center'}}>
                             點數倍率:
@@ -71,7 +71,7 @@ export default function App() {
                                     setPointBooster(Number(event.target.value));
                                 }}
                             />
-                            倍 (沒有倍率活動時候打1)
+                            (沒有活動的時候是"1")
                         </Box>
                         <Box sx={{display: 'flex', alignItems: 'center'}}>
                             結帳金額:
@@ -81,7 +81,6 @@ export default function App() {
                                     setTotal(Number(event.target.value));
                                 }}
                             />
-                            元
                         </Box>
                         <Box sx={{display: 'flex', alignItems: 'center'}}>
                             折價券折抵:
@@ -91,7 +90,6 @@ export default function App() {
                                     setCoupon(Number(event.target.value));
                                 }}
                             />
-                            元
                         </Box>
                         <Box sx={{display: 'flex', alignItems: 'center'}}>
                             *額外的點數
@@ -101,40 +99,43 @@ export default function App() {
                                     setBonusPoint(Number(event.target.value));
                                 }}
                             />
-                            (比如果有1200加送100點, 這裡就打100)
+                            (e.g.消費滿1200加送100點, 這裡就打100)
                         </Box>
                         <Box sx={{display: 'flex', alignItems: 'center'}}>
-                            點數會拿去買書的折扣:
+                            使用點數時的折扣:
                             <TextField variant="outlined" type='number' size="small"
                                 defaultValue={pointDiscount}
                                 onChange={(event) => {
                                     setPointDiscount(Number(event.target.value));
                                 }}
                             />
-                            (比如說你點數會等之後有更低折扣再用, 可以填更低折扣, 要不然就填現在全館折扣)
+                            (比如說你習慣點數會等之後有更低折扣時再用, 就填更低折扣, 要不然就填現在全館折扣)
                         </Box>
+                        <hr/>
                         <Box sx={{display: 'flex', alignItems: 'center'}}>
-                            等於用現金買到原價
+                            現金買到原價$
                             {round2(bookValue)}
                             元的書
                         </Box>
                         <Box sx={{display: 'flex', alignItems: 'center'}}>
-                            另外獲得點數
+                            獲得點數
                             {round2(point)}
-                            點, 可以買到原價
+                            點, 可以買到原價$
                             {round2(pointBookValue)}
                             元的書
                         </Box>
                         <Box sx={{display: 'flex', alignItems: 'center'}}>
-                            花了{total}可以得到原價
+                            等於總共花了${total}, 買到原價$
                             {round2(bookValue)}
-                            +
+                            +$
                             {round2(pointBookValue)}
-                            =
+                            =$
                             {round2(totalBookValue)}
-                            元的書,
-                            總折扣是
-                            {round2(totalDiscount)}
+                            元的書
+                        </Box>
+                        <Box sx={{display: 'flex', alignItems: 'center'}}>
+                            折扣是
+                            {Math.round(totalDiscount * 1000) / 10}%
                         </Box>
                     </Paper>
                 </Container>
